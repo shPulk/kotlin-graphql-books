@@ -2,6 +2,7 @@ package com.acme.books
 
 import org.springframework.graphql.data.method.annotation.QueryMapping
 import org.springframework.stereotype.Controller
+import org.springframework.graphql.data.method.annotation.Argument
 
 data class Book(val id: String, val title: String, val pageCount: Int)
 
@@ -15,4 +16,7 @@ class BookController {
 
     @QueryMapping
     fun books(): List<Book> = books
+
+    @QueryMapping
+    fun bookById(@Argument id: String): Book? = books.find { it.id == id }
 }
