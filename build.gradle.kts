@@ -41,3 +41,7 @@ kotlin {
 tasks.withType<Test> {
     useJUnitPlatform()
 }
+
+springBoot {
+    mainClass.set("com.acme.books.BooksApplicationKt")
+}
